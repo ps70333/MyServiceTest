@@ -2,10 +2,13 @@ package tw.com.ei.myservicetest;
 
 import android.app.Service;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.util.Log;
+
+import java.io.IOException;
 
 /**
  manifest要新增這個serivce
@@ -13,6 +16,7 @@ import android.util.Log;
  */
 
 public class MyService extends Service {
+    public MediaPlayer player;
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -22,6 +26,9 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        player=MediaPlayer.create(this,R.raw.test);
+        player.start();
+
         Log.i("simon","onCreate");
     }
 

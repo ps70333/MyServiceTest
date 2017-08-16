@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        myServiceConnection=new MyServiceConnection();
-        Intent it=new Intent(MainActivity.this,MyService.class);
-        myService.bindService(it,myServiceConnection, Context.BIND_AUTO_CREATE)
+        //myServiceConnection=new MyServiceConnection();
+        //Intent it=new Intent(MainActivity.this,MyService.class);
+        //bindService(it,myServiceConnection, Context.BIND_AUTO_CREATE);
     }
     public class MyServiceConnection implements ServiceConnection{
         @Override
@@ -42,6 +42,6 @@ public class MainActivity extends AppCompatActivity {
         stopService(it);
     }
     public void unbind(View v){
-        unbindService(MyService);
+        //unbindService(MyServiceConnection);
     }
 }
